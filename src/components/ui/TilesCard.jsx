@@ -6,13 +6,13 @@ const TilesCard = ({tile}) => {
   return (
     <div
             
-            className="p-4 border border-black/15 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition"
+            className="p-4 border hover:scale-103 transition-all duration-300  border-black/15 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition"
           >
             
             <Image
               src={tile.image}
               alt={tile.title}
-              className="w-full h-50 object-cover rounded-md" width={600} height={600}
+              className="w-full h-50 object-cover rounded-md hover:scale-102 transition-all duration-300" width={600} height={600}
             />
             <div >
               <h3 className="font-semibold text-lg mt-2">
