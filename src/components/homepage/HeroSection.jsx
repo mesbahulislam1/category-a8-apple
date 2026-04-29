@@ -1,9 +1,8 @@
-"use client";
-
 
 import Link from "next/link";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
+import TilesCard from "../ui/TilesCard";
 
 
  const marqueeItems = [
@@ -19,9 +18,11 @@ import Marquee from "react-fast-marquee";
     "Explore: Outdoor Wall Tile Collection",
   ];
 
-const HeroSection = () => {
- 
-
+const HeroSection =  async () => {
+   
+  const res = await fetch('https://category-a8-apple-l35b.vercel.app/tiles.json')
+    const data = await res.json()
+   
   return (
     <div className="w-full">
 
@@ -49,7 +50,9 @@ const HeroSection = () => {
           Featured Tiles
         </h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-          
+           {
+           data.map((tile) => <TilesCard key={tile.id} tile={tile}></TilesCard>)
+        }
         </div>
       </section>
 
