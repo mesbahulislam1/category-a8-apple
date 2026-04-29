@@ -6,24 +6,18 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white mt-10">
       <div className="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8">
-        
-        {/* Brand */}
         <div>
           <h2 className="text-2xl font-bold text-blue-400">Tiles Gallery</h2>
           <p className="mt-3 text-gray-400 text-sm leading-6">
             Discover stylish and modern tile collections for your dream home.
           </p>
         </div>
-
-        {/* Contact Us */}
         <div>
           <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
-          <p className="text-gray-400 text-sm">Email: support@tilesgallery.com</p>
+          <p className="text-gray-400 text-sm">Email: mesbahulislam012@gmail.com</p>
           <p className="text-gray-400 text-sm">Phone: +880 1234-567890</p>
-          <p className="text-gray-400 text-sm">Location: Dhaka, Bangladesh</p>
+          <p className="text-gray-400 text-sm">Location: Bagmara, Rajshahi, Bangladesh</p>
         </div>
-
-        {/* Social Media */}
         <div>
           <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
           <div className="flex gap-4">
@@ -60,8 +54,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
-      {/* Bottom */}
       <div className="border-t border-gray-700 text-center py-4 text-sm text-gray-400">
         © 2026 Tiles Gallery. All Rights Reserved.
       </div>
