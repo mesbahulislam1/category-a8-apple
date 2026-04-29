@@ -16,9 +16,16 @@ const page = () => {
     const UserData = session?.user;
   return (
     <div>
-        {/* <Image href={UserData.image}></Image> */}
-
-        <h2>{UserData?.name}</h2>
+       {UserData?.image && (
+      <Image
+        src={UserData.image}
+        alt="Profile"
+        width={100}
+        height={100}
+        className="rounded-full"
+      />
+    )}
+        <h2 className='text-2xl font-medium'>{UserData?.name}</h2>
     </div>
   )
 }
