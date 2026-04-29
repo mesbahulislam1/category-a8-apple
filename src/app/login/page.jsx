@@ -1,4 +1,5 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import {Check} from "@gravity-ui/icons";
 import {Button, Description, FieldError, Form, Input, Label, TextField} from "@heroui/react";
 import Link from "next/link";
@@ -7,9 +8,23 @@ import { FaGoogle } from "react-icons/fa";
 
 const LoginPage = () => {
 
+  const handelLogin= async(e)=>{
+    e.preventDefault()
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    const { data, error } = await authClient.signIn.email({
+        email,     
+        password,
+       
+}, {
+    //callbacks
+       })
+  }
+
   return (
       <div className="border p-8 w-fit py-5 rounded-2xl my-20 mx-auto">
-        <Form
+        <Form onSubmit={handelLogin}
       className="flex w-90 flex-col gap-4 "
       render={(props) => <form {...props} data-custom="foo" />}
       
@@ -38,12 +53,7 @@ const LoginPage = () => {
           if (value.length < 8) {
             return "Password must be at least 8 characters";
           }
-          if (!/[A-Z]/.test(value)) {
-            return "Password must contain at least one uppercase letter";
-          }
-          if (!/[0-9]/.test(value)) {
-            return "Password must contain at least one number";
-          }
+          
           return null;
         }}
       >

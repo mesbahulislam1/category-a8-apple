@@ -3,10 +3,23 @@
 import React from "react";
 import Link from "next/link";
 import MyLinks from "./MyLinks";
+import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
   // Change this to true when user logged in
-  const isLoggedIn = false;
+  const { 
+          data: session, 
+          isPending, //loading state
+          error, //error object
+          refetch //refetch the session
+      } = authClient.useSession() 
+  
+  
+   const isLoggedIn  = session?.user;
+   const LogOut = async()=>{
+    await authClient.signOut();
+   }
+   
 
   return (
     <header className="w-full shadow-md bg-white">
@@ -52,7 +65,7 @@ const Navbar = () => {
                 Profile
               </Link>
 
-              <button className="px-5 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">
+              <button onClick={LogOut} className="px-5 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">
                 Logout
               </button>
             </>

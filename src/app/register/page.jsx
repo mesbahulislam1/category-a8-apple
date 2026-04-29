@@ -1,4 +1,5 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import {Check} from "@gravity-ui/icons";
 import {Button, Description, FieldError, Form, Input, Label, TextField} from "@heroui/react";
 import Link from "next/link";
@@ -8,17 +9,25 @@ import { FaGoogle } from "react-icons/fa";
 
 const page = () => {
 
-  const handelRegistation = (e)=>{
+  const handelRegistation = async(e)=>{
     e.preventDefault()
     const name = e.target.name.value;
     const email = e.target.email.value;
     const photourl = e.target.photourl.value;
     const password = e.target.password.value;
     
+    const { data, error } = await authClient.signUp.email({
+    name: name, // required
+    email: email, // required
+    password: password, // required
+    image: photourl,
+    
+});
 
+    console.log(data, error)
 
-    console.log(name, email, photourl, password)
   }
+  
   return (
 
         <Form onSubmit={handelRegistation}
@@ -76,12 +85,7 @@ const page = () => {
               if (value.length < 8) {
                 return "Password must be at least 8 characters";
               }
-              if (!/[A-Z]/.test(value)) {
-                return "Password must contain at least one uppercase letter";
-              }
-              if (!/[0-9]/.test(value)) {
-                return "Password must contain at least one number";
-              }
+              
               return null;
             }}
           >
