@@ -2,17 +2,27 @@
 import {Check} from "@gravity-ui/icons";
 import {Button, Description, FieldError, Form, Input, Label, TextField} from "@heroui/react";
 import Link from "next/link";
+import { FaGoogle } from "react-icons/fa";
 
 
 
 const page = () => {
 
-  const handelRegistation = ()=>{
+  const handelRegistation = (e)=>{
+    e.preventDefault()
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const photourl = e.target.photourl.value;
+    const password = e.target.password.value;
     
+
+
+    console.log(name, email, photourl, password)
   }
   return (
-    <Form onSubmit={handelRegistation}
-          className="flex w-90 flex-col gap-4 "
+
+        <Form onSubmit={handelRegistation}
+          className="flex w-99 flex-col gap-4 p-8 border mt-9 rounded-2xl"
           render={(props) => <form {...props} data-custom="foo" />}
           
         >
@@ -45,9 +55,9 @@ const page = () => {
             <FieldError />
           </TextField>
 
- <TextField
+           <TextField
             isRequired
-            name="name"
+            name="photourl"
             type="text"
             
           >
@@ -87,6 +97,7 @@ const page = () => {
             
           </div>
         </Form>
+        
   )
 }
 
