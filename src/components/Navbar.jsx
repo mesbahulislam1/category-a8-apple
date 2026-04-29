@@ -1,0 +1,66 @@
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import MyLinks from "./MyLinks";
+
+const Navbar = () => {
+  // Change this to true when user logged in
+  const isLoggedIn = false;
+
+  return (
+    <header className="w-full shadow-md bg-white">
+      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        
+        {/* Left - Logo */}
+        <div className="flex items-center">
+          <Link href="/" className="font-extrabold">
+            Tiles Gallery
+          </Link>
+        </div>
+
+        {/* Center - Menu Links */}
+        <div className="hidden md:flex gap-8 text-gray-700 font-medium">
+          <MyLinks href="/">
+            Home
+          </MyLinks>
+
+          <MyLinks href="/all-tiles" className="hover:text-blue-600 transition">
+            All Tiles
+          </MyLinks>
+
+          <MyLinks href="/profile" className="hover:text-blue-600 transition">
+            My Profile
+          </MyLinks>
+        </div>
+
+        {/* Right - Auth Buttons */}
+        <div className="flex items-center gap-4">
+          {!isLoggedIn ? (
+            <Link
+              href="/login"
+              className="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+            >
+              Login
+            </Link>
+          ) : (
+            <>
+              <Link
+                href="/profile"
+                className="px-4 py-2 border rounded-lg hover:bg-gray-100 transition"
+              >
+                Profile
+              </Link>
+
+              <button className="px-5 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">
+                Logout
+              </button>
+            </>
+          )}
+        </div>
+      </nav>
+    </header>
+  );
+};
+
+export default Navbar;
