@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+
 import Link from "next/link";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
@@ -20,21 +20,7 @@ import Marquee from "react-fast-marquee";
   ];
 
 const HeroSection = () => {
-  const [featuredTiles, setFeaturedTiles] = useState([]);
-
-  useEffect(() => {
-    const fetchTiles = async () => {
-      try {
-        const res = await fetch("/api/tiles"); 
-        const data = await res.json();
-        setFeaturedTiles(data.slice(0, 4));
-      } catch (error) {
-        console.log("Error fetching tiles:", error);
-      }
-    };
-
-    fetchTiles();
-  }, []);
+ 
 
   return (
     <div className="w-full">
@@ -62,31 +48,8 @@ const HeroSection = () => {
         <h2 className="text-3xl font-bold mb-8 text-center">
           Featured Tiles
         </h2>
-
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {featuredTiles.map((tile) => (
-            <div
-              key={tile.id}
-              className="border rounded-xl shadow-md overflow-hidden hover:shadow-xl transition"
-            >
-              <Image
-                src={tile.imageUrl}
-                alt={tile.title}
-                className="w-full h-40 object-cover"
-              />
-
-              <div className="p-4">
-                <h3 className="font-semibold text-lg">{tile.title}</h3>
-
-                <Link
-                  href={`/all-tiles/${tile.id}`}
-                  className="mt-3 inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
-                >
-                  View Details
-                </Link>
-              </div>
-            </div>
-          ))}
+          
         </div>
       </section>
 
