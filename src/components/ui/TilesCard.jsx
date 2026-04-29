@@ -6,19 +6,16 @@ const TilesCard = ({tile}) => {
   return (
     <div
             
-            className="border rounded-xl shadow-md overflow-hidden hover:shadow-xl transition"
+            className="p-4 border border-black/15 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition"
           >
             
-            {/* Image */}
             <Image
               src={tile.image}
               alt={tile.title}
-              className="w-full h-44 object-cover" width={500} height={500}
+              className="w-full h-50 object-cover rounded-md" width={600} height={600}
             />
-
-            {/* Content */}
-            <div className="p-4">
-              <h3 className="font-semibold text-lg">
+            <div >
+              <h3 className="font-semibold text-lg mt-2">
                 {tile.title}
               </h3>
 
@@ -30,9 +27,8 @@ const TilesCard = ({tile}) => {
                 {tile.currency} {tile.price}
               </p>
 
-              {/* View Details Button */}
               <Link
-                href={`/tiles/${tile.id}`}
+                href={`/all-tiles/${tile.id}`}
                 className="mt-4 inline-block w-full text-center bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
               >
                 View Details

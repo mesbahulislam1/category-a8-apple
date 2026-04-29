@@ -24,9 +24,10 @@ const HeroSection =  async () => {
     const data = await res.json()
    
   return (
-    <div className="w-full">
+    <div className="w-full mt-8 relative">
 
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white h-[70vh] flex flex-col items-center justify-center text-center px-4">
+      <section style={{backgroundImage: "url('/bg-hero.avif')"}} className="bg-black/10 text-white h-[78vh]  flex flex-col items-center justify-center text-center px-4 relative">
+       <div className="absolute inset-0 bg-black/10"></div>
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           Discover Your Perfect Aesthetic
         </h1>
@@ -38,11 +39,13 @@ const HeroSection =  async () => {
           Browse Now
         </Link>
       </section>
-    <Marquee pauseOnHover>
+    <div className=" -mt-15 max-w-[1140px] bg-black/80  mx-auto ">
+      <Marquee pauseOnHover className=" " >
         {
-            marqueeItems.map((item, index)=> <p key={index} className="px-5 bg-black/80 text-white py-5">{item}</p>)
+            marqueeItems.map((item, index)=> <p key={index} className="px-5 bg-black/80 text-white py-3 text-[21px]">{item}</p>)
         }
     </Marquee>
+    </div>
 
 
       <section className="max-w-7xl mx-auto px-6 py-16">
@@ -51,8 +54,11 @@ const HeroSection =  async () => {
         </h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
            {
-           data.map((tile) => <TilesCard key={tile.id} tile={tile}></TilesCard>)
+           data.slice(0, 8).map((tile) => <TilesCard key={tile.id} tile={tile}></TilesCard>)
         }
+        </div>
+        <div className="text-center">
+          <Link href={'/all-tiles'} className=" px-5 shadow-md hover:scale-105 transition-all duration-300 bg-linear-to-l from-[rgb(3,83,255)] via-[#53adc4] to-[rgb(3,83,255)] py-2 font-bold text-white inline-block mt-5 bg-blue-500 rounded-full">See More </Link>
         </div>
       </section>
 
