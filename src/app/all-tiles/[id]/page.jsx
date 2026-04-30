@@ -11,7 +11,7 @@ const page = async({params}) => {
     
    
   return (
-    <div className="max-w-4xl mx-auto mt-19 p-6 grid grid-cols-2 gap-5">
+    <div className="max-w-4xl mx-auto mt-19 p-6 grid grid-cols-1 md:grid-cols-2 gap-5">
       <Image
         src={findData.image}
         alt={findData.title} width={800} height={800}
