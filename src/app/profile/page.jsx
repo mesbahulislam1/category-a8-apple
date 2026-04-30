@@ -15,21 +15,27 @@ const page = () => {
 
     const UserData = session?.user;
   return (
-    <div className='shadow-xl card mt-8 text-center w-fit p-7 border border-black/50'>
+    <div className='h-[50vh]'>
+    {
+      UserData && <div className='shadow-xl card mx-auto mt-8 text-center w-fit p-7 border border-black/50'>
       <p>{UserData?.email}</p>
        {UserData?.image && (
-      <Image
+
+        <Image
         src={UserData.image}
         alt="Profile"
-        width={100}
-        height={100}
-        className="rounded-full mx-auto"
+        width={500}
+        height={500}
+        className="rounded-full w-[100px] object-cover h-[100px] mx-auto"
       />
+
     )}
         <h2 className='text-2xl font-medium'>{UserData?.name}</h2>
         <div className='text-center'>
            <UpdateUser></UpdateUser>
         </div>
+    </div>
+    }
     </div>
   )
 }

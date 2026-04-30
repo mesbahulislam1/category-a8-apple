@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import MyLinks from "./MyLinks";
 import { authClient } from "@/lib/auth-client";
+import Image from "next/image";
 
 const Navbar = () => {
   // Change this to true when user logged in
@@ -16,6 +17,7 @@ const Navbar = () => {
   
   
    const isLoggedIn  = session?.user;
+
    const LogOut = async()=>{
     await authClient.signOut();
    }
@@ -58,11 +60,9 @@ const Navbar = () => {
             </Link>
           ) : (
             <>
-              <Link
-                href="/profile"
-                className="px-4 py-2 border rounded-lg hover:bg-gray-100 transition"
-              >
-                Profile
+              
+              <Link href={"/profile"} className="rounded-full overflow-hidden h-[40px] w-[40px] ">
+                <Image src={isLoggedIn.image} width={40} height={40} alt="Image" className="object-cover "></Image>
               </Link>
 
               <button onClick={LogOut} className="px-5 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">
