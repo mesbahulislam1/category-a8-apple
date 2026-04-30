@@ -26,7 +26,7 @@ const HeroSection =  async () => {
   return (
     <div className="w-full mt-8 relative">
 
-      <section style={{backgroundImage: "url('/bg-hero.avif')"}} className="bg-black/10 text-white h-[78vh]  flex flex-col items-center justify-center text-center px-4 relative">
+      <section style={{backgroundImage: "url('/bg-hero.avif')", backgroundPosition: 'center'}} className="bg-black/10 text-white h-[78vh]  flex flex-col items-center justify-center text-center px-4 relative">
        <div className="absolute inset-0 bg-black/10"></div>
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           Discover Your Perfect Aesthetic
