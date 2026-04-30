@@ -15,9 +15,9 @@ const page = () => {
 
     const UserData = session?.user;
   return (
-    <div className='h-[50vh]'>
+    <div className='h-[50vh] '>
     {
-      UserData && <div className='shadow-xl card mx-auto mt-8 text-center w-fit p-7 border border-black/50'>
+      UserData && <div className='shadow-xl mt-27 card mx-auto mt-8 text-center w-fit p-7 border border-black/50'>
       <p>{UserData?.email}</p>
        {UserData?.image && (
 
