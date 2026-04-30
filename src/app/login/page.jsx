@@ -31,7 +31,7 @@ const LoginPage = () => {
     );
     
     if (data) {
-  toast.success("🎉 Welcome back! Login successful.");
+  toast.success("Welcome back! Login successful.");
 } else {
   toast.error("Login failed. Please check your credentials and try again.");
 }
