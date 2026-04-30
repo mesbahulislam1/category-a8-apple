@@ -37,7 +37,7 @@ const page = () => {
   return (
 
         <Form onSubmit={handelRegistation}
-          className="flex w-99 flex-col gap-4 p-8 border border-black/30 mx-auto mt-9 rounded-2xl"
+          className="flex w-99 flex-col gap-4 p-8 border border-black/30 mx-auto mt-30 rounded-2xl"
           render={(props) => <form {...props} data-custom="foo" />}
           
         >

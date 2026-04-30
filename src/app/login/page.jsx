@@ -51,7 +51,8 @@ const LoginPage = () => {
 };
 
   return (
-    <div className="border p-8 w-fit py-5 rounded-2xl my-20 mx-auto">
+    <div className="pt-20">
+      <div className="border p-8 w-fit py-5 rounded-2xl my-20 mx-auto">
       <Form
         onSubmit={handelLogin}
         className="flex w-90 flex-col gap-4 "
@@ -111,6 +112,7 @@ const LoginPage = () => {
           Registation
         </Link>
       </div>
+    </div>
     </div>
   );
 };
