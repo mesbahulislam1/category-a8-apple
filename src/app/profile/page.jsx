@@ -2,8 +2,7 @@
 import React from 'react'
 import { authClient } from "@/lib/auth-client" 
 import Image from 'next/image'
-import { FaEdit } from 'react-icons/fa'
-import {Button} from "@heroui/react";
+import UpdateUser from '@/components/ui/UpdateUser'
 
 const page = () => {
      const { 
@@ -29,7 +28,7 @@ const page = () => {
     )}
         <h2 className='text-2xl font-medium'>{UserData?.name}</h2>
         <div className='text-center'>
-          <Button variant='outline' className=''><FaEdit></FaEdit> Edit Profile</Button>
+           <UpdateUser></UpdateUser>
         </div>
     </div>
   )

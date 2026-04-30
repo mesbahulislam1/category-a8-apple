@@ -12,6 +12,7 @@ import {
 } from "@heroui/react";
 import Link from "next/link";
 import { FaGoogle } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const handelLogin = async (e) => {
@@ -28,12 +29,24 @@ const LoginPage = () => {
         //callbacks
       },
     );
+    
+    if (data) {
+  toast.success("🎉 Welcome back! Login successful.");
+} else {
+  toast.error("Login failed. Please check your credentials and try again.");
+}
+
   };
 
   const signIn = async () => {
   const data = await authClient.signIn.social({
     provider: "google",
   });
+   if (data) {
+  toast.success("🎉 Welcome back! Login successful.");
+} else {
+  toast.error("Login failed. Please check your credentials and try again.");
+}
   console.log(data)
 };
 

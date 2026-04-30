@@ -4,6 +4,7 @@ import {Check} from "@gravity-ui/icons";
 import {Button, Description, FieldError, Form, Input, Label, TextField} from "@heroui/react";
 import Link from "next/link";
 import { FaGoogle } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 
 
@@ -25,13 +26,18 @@ const page = () => {
 });
 
     console.log(data, error)
+    if (data) {
+  toast.success("🎉 Registration successful! Welcome aboard.");
+} else {
+  toast.error("Registration failed. Please try again.");
+}
 
   }
   
   return (
 
         <Form onSubmit={handelRegistation}
-          className="flex w-99 flex-col gap-4 p-8 border mt-9 rounded-2xl"
+          className="flex w-99 flex-col gap-4 p-8 border border-black/30 mx-auto mt-9 rounded-2xl"
           render={(props) => <form {...props} data-custom="foo" />}
           
         >

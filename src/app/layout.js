@@ -4,6 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 import dns from "node:dns"
+import { ToastContainer } from "react-toastify";
+
 dns.setServers(['8.8.8.8', '8.8.4.4'])
 
 const geistSans = Geist({
@@ -32,6 +34,7 @@ export default function RootLayout({ children }) {
         <main className="max-w-[1140px] mx-auto">
           {children}
         </main>
+        <ToastContainer />
         <Footer></Footer>
       </body>
     </html>
