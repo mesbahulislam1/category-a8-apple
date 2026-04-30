@@ -49,7 +49,7 @@ const Navbar = () => {
           <span onClick={()=>setShowMenu(!showMenu)} className=" text-2xl mr-2 md:hidden">
             {showMenu?<IoMdClose className="text-red-700 border cursor-pointer"/>:<IoMenuSharp className="cursor-pointer"/>}
           </span>
-          <Link href="/" className="font-extrabold">
+          <Link href="/" className="font-extrabold text-2xl">
             Tiles Gallery
           </Link>
         </div>
@@ -68,13 +68,13 @@ const Navbar = () => {
         <div id="closeBlack" className={`fixed transition-all duration-200 top-18.5 z-10 bg-black/50 h-screen w-full ${showMenu ? 'left-0 ':'-left-500'}`}></div>
         {/* Center - Menu Links */}
         <div className="hidden md:flex gap-8 text-gray-700 font-medium">
-          <MyLinks href="/">Home</MyLinks>
+          <MyLinks setShowMenu={ setShowMenu} href="/">Home</MyLinks>
 
-          <MyLinks href="/all-tiles" className="hover:text-blue-600 transition">
+          <MyLinks  setShowMenu={ setShowMenu} href="/all-tiles" className="hover:text-blue-600 transition">
             All Tiles
           </MyLinks>
 
-          <MyLinks href="/profile" className="hover:text-blue-600 transition">
+          <MyLinks setShowMenu={ setShowMenu} href="/profile" className="hover:text-blue-600 transition">
             My Profile
           </MyLinks>
         </div>
