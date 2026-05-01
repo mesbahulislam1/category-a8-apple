@@ -24,7 +24,7 @@ const LoginPage = () => {
       {
         email,
         password,
-        callbackURL: '/',
+        callbackURL: '/profile',
       },
       
     );
@@ -40,6 +40,7 @@ const LoginPage = () => {
   const signIn = async () => {
   const data = await authClient.signIn.social({
     provider: "google",
+    callbackURL: '/profile'
   });
    if (data) {
   toast.success("🎉 Welcome back! Login successful.");
