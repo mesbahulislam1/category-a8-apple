@@ -21,7 +21,7 @@ const page = () => {
       <p>{UserData?.email}</p>
        {UserData?.image && (
 
-        <div className='border-3 border-blue-700 mx-auto w-fit rounded-full'>
+        <div className='border-3 border-blue-600 mx-auto w-fit rounded-full'>
           <div className='p-1 bg-white rounded-full'>
             <Image
         src={UserData.image}
