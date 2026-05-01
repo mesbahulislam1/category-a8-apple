@@ -24,10 +24,9 @@ const LoginPage = () => {
       {
         email,
         password,
+        callbackURL: '/',
       },
-      {
-        //callbacks
-      },
+      
     );
     
     if (data) {
