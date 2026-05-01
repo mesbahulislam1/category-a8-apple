@@ -21,6 +21,7 @@ const Navbar = () => {
 
   const LogOut = async () => {
     await authClient.signOut();
+    window.location.href ='/login'
   };
    const [showMenu, setShowMenu] = useState(false)
 
